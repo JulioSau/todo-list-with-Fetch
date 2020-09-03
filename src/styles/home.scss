@@ -1,0 +1,34 @@
+@import "~bootstrap/scss/bootstrap.scss";
+body {
+    background-color: azure;
+}
+
+li {
+    font-size: 2rem;
+    color: dimgray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[type=text] {
+  background-color: rgb(245, 253, 253);
+  color: navy;
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  outline: none;
+}
+
+.titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 7rem;
+    color: lightsalmon;
+}
+
+.contador {
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(177, 177, 177);
+}
+
+.boxtask, .boxinput, .boxcontador {
+    box-shadow: 2px 2px 5px rgb(131, 131, 131);
+}
