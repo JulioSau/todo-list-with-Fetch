@@ -28,7 +28,7 @@ export function Home() {
 				{store.tasks.map((task, index) => {
 					return (
 						<li className="d-flex justify-content-between" key={index}>
-							{task}{" "}
+							{task.label}{" "}
 							<p
 								onClick={() => {
 									actions.deleteTask(index);

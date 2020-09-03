@@ -17,7 +17,10 @@ const injectContext = PassedComponent => {
 			})
 		);
 
-		useEffect(() => {}, []);
+		useEffect(() => {
+			state.actions.getSchudeles();
+			state.actions.postSchudeles();
+		}, []);
 
 		return (
 			<Context.Provider value={state}>

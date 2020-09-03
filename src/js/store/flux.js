@@ -6,7 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			addTask: task => {
 				const store = getStore();
-				setStore({ tasks: [...store.tasks, task] });
+				const newTask = { label: task, done: true };
+				setStore({ tasks: [...store.tasks, newTask] });
+				getActions().putSchudeles();
 			},
 
 			deleteTask: index => {
@@ -18,6 +20,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				}
 				setStore({ tasks: newArray });
+				getActions().putSchudeles();
+			},
+
+			getSchudeles: async () => {
+				let response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/juliosau");
+				let data = await response.json();
+				setStore({ tasks: data });
+			},
+
+			putSchudeles: async newTask => {
+				let store = getStore();
+				let response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/juliosau", {
+					headers: { "Content-Type": "application/json" },
+					method: "PUT",
+					body: JSON.stringify(store.tasks)
+				});
+			},
+
+			postSchudeles: async () => {
+				let store = getStore();
+				let response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/blablablabla", {
+					headers: { "Content-Type": "application/json" },
+					method: "POST",
+					body: JSON.stringify([])
+				});
 			}
 		}
 	};
